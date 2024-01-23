@@ -1,0 +1,22 @@
+name: Pipeline for aploading artifacts
+
+on: push
+
+jobs:
+  build:
+   runs-on: ubuntu-latest
+   steps:
+    - name: checkout the code
+      uses: actions/checkout@v4
+    - run: python hello.py
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/upload-artifacts@v2
+        with:
+           name: hello
+           path: .
+           
+         
+    
