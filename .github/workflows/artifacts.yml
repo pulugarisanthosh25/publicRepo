@@ -14,7 +14,7 @@ jobs:
       "- Lets add a second bullet point" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
       "- How about a third one?" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
    - name: checkout the code
-   - uses: actions/checkout@v4
+     uses: actions/checkout@v4
    - run: python hello.py
   Upload:
     needs: [ build]
