@@ -9,7 +9,8 @@ jobs:
     - name: checkout the code
       uses: actions/checkout@v4
     - run: python hello.py
-  Test:
+  Upload:
+    needs: [ build]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
