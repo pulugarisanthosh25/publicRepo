@@ -7,7 +7,12 @@ jobs:
    runs-on: ubuntu-latest
    steps:
    - name: Generate list using Markdown
-     run: "This is the lead in sentence for the list" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
+     run: |
+    "This is the lead in sentence for the list" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
+    "" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append # this is a blank line
+    "- Lets add a bullet point" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
+    "- Lets add a second bullet point" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
+    "- How about a third one?" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
    - name: checkout the code
    - uses: actions/checkout@v4
    - run: python hello.py
